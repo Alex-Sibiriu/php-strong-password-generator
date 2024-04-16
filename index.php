@@ -12,16 +12,22 @@ $all_characters = array_merge($symbols, $lowercase_letters, $uppercase_letters, 
 
 $pass_length = isset($_GET['pass_length']) ? $_GET['pass_length'] : 0;
 
+$max_length = 24;
+
 $repeat = isset($_GET['repeat']) ? true : false;
+
+if ($pass_length > $max_length) {
+  $pass_length = $max_length;
+}
 
 if ($pass_length > count($all_characters) && !$repeat ) {
   $pass_length = count($all_characters);
 }
 
-if ($pass_length > 5) {
+if ($pass_length > 0) {
   $_SESSION['new_password'] = create_pass($all_characters, $pass_length, $repeat);
   header('Location: ./partials/success.php');
-}
+} 
 
 ?>
 

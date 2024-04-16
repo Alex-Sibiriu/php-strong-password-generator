@@ -12,7 +12,8 @@ $password = $_SESSION['new_password'];
 <body class="bg-warning-subtle">
   
   <div class="container pt-5">
-    <p>La password generata è: <?php echo $password ?></p>
+    <h3 class="fw-bold d-inline-block ">La password generata è:</h3>
+    <span class="w-100 rounded-4 bg-info-subtle px-3 py-1 border-danger"><?php echo $password ?></span>
   </div>
   
 </body>
