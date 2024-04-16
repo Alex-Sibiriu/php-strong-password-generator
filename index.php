@@ -12,7 +12,11 @@ $all_characters = array_merge($symbols, $lowercase_letters, $uppercase_letters, 
 
 $pass_length = isset($_GET['pass_length']) ? $_GET['pass_length'] : 0;
 
-$repeat = isset($_GET['chars_repeat']) ? $_GET['chars_repeat'] : 0;
+$repeat = isset($_GET['repeat']) ? true : false;
+
+if ($pass_length > count($all_characters) && !$repeat ) {
+  $pass_length = count($all_characters);
+}
 
 if ($pass_length > 5) {
   $_SESSION['new_password'] = create_pass($all_characters, $pass_length, $repeat);
@@ -58,27 +62,16 @@ if ($pass_length > 5) {
               Simboli
             </label>
           </div>
+
+          <div class="form-check">
+            <input class="form-check-input" name="repeat" type="checkbox" value="true" id="repeat" >
+            <label class="form-check-label" for="repeat">
+              Consenti Ripetizioni
+            </label>
+          </div>
         </div>
         <!-- /CHECKS -->
   
-        <!-- RADIOS -->
-        <div>
-          <h5>Ripetizione caratteri</h5>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="chars_repeat" id="repeatYes" checked>
-            <label class="form-check-label" for="repeatYes">
-              Si
-            </label>
-          </div>
-  
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="repeatNo">
-            <label class="form-check-label" for="repeatNo">
-              No
-            </label>
-          </div>
-        </div>
-        <!-- /RADIOS -->
       </div>
 
     </form>

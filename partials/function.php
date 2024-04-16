@@ -4,16 +4,15 @@
     $password = '';
     for ($i=0; $i < $pass_length; $i++) { 
       $position = rand(0, count($all_characters) - 1);
-      if ($repeat) {
+      if (!$repeat) {
         if (!str_contains($password, $all_characters[$position])) {
           $password .= $all_characters[$position];
         } else {
-          // $i--;
+          $i--;
         }
       } else {
         $password .= $all_characters[$position];
       }
-      // $password .= $all_characters[$position];
     }
     return $password;
   }
