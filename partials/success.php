@@ -7,7 +7,7 @@ $password = $_SESSION['new_password'];
 
 ?>
 
-<?php require_once __DIR__ . './partials/head.php'; ?>
+<?php require_once __DIR__ . '/head.php'; ?>
 
 <body class="bg-warning-subtle">
   
