@@ -2,9 +2,15 @@
 
 require_once __DIR__ . '/partials/function.php';
 
-require_once __DIR__ . '/partials/head.php';
+session_start();
+if (isset($pass_length)) {
+  $_SESSION['new_password'] = create_pass($all_characters, $pass_length);
+  header('Location: ./partials/success.php');
+}
 
 ?>
+
+<?php require_once __DIR__ . './partials/head.php'; ?>
 
 <body class="bg-warning-subtle">
   
@@ -13,7 +19,6 @@ require_once __DIR__ . '/partials/head.php';
    
       <label for="length">Inserisci la lunghezza desiderata</label>
       <input type="number" id="length" name="pass_length" placeholder="Lunghezza">
-      <p></p>
     
      <button type="submit" class="btn btn-outline-warning btn-light fw-bold">Invia</button>
     </form>

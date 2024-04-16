@@ -18,8 +18,4 @@
     return $password;
   }
 
-  if (isset($pass_length)) {
-    create_pass($all_characters, $pass_length);
-  }
-
 ?>
